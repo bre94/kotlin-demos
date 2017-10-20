@@ -7,6 +7,10 @@
     <groupId>de.example.kotlin</groupId>
     <artifactId>kotlin-demos</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>primefactorcalculator</module>
+    </modules>
 
 </project>
