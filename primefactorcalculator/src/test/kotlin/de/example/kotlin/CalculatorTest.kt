@@ -1,8 +1,9 @@
 package de.example.kotlin
-
+import org.hamcrest.CoreMatchers.`is`
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertTrue
 
 internal class CalculatorTest {
 
@@ -27,4 +28,15 @@ internal class CalculatorTest {
         assertTrue(Calculator.isNumberPrimeBloated(5))
         assertTrue(Calculator.isNumberPrimeBloated(23))
     }
+
+    @Test
+    fun shouldReturnCorrectPrimeFactors(){
+        assertThat(Calculator.splitInPrimeFactors(0), `is`(emptyList()))
+        assertThat(Calculator.splitInPrimeFactors(1), `is`(emptyList()))
+        assertThat(Calculator.splitInPrimeFactors(2), `is`(listOf(2)))
+        assertThat(Calculator.splitInPrimeFactors(3), `is`(listOf(3)))
+        assertThat(Calculator.splitInPrimeFactors(4), `is`(listOf(2,2)))
+        assertThat(Calculator.splitInPrimeFactors(17954), `is`(listOf(2, 47, 191)))
+    }
+
 }

@@ -35,5 +35,23 @@ class Calculator {
 
             return true
         }
+
+        /**
+         * Prime Factor Splitting
+         */
+        fun splitInPrimeFactors(num: Int): List<Int> {
+            val factors = mutableListOf<Int>()
+            var remainder = num
+            var divisor = 2
+            while (remainder > 1) {
+                while (remainder % divisor == 0) {
+                    factors.add(divisor)
+                    remainder /= divisor
+                }
+                divisor++
+            }
+            return factors
+        }
     }
 }
+
